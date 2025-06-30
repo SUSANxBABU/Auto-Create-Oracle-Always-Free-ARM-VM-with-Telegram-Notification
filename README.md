@@ -70,12 +70,14 @@ oci --version
 **<h2>✅ 1. Generate Key Pair on Oracle cloud dashboard <br></h2>**
 
 <br>
-- Go to: [https://cloud.oracle.com/identity/domains/my-profile/auth-tokens?](https://cloud.oracle.com/identity/domains/my-profile/auth-tokens?)
-- Click your username.
-- Scroll to API Keys → Click "Add API Key"
-- Download your private key & public key
+Go to: <br>
+(https://cloud.oracle.com/identity/domains/my-profile/auth-tokens?) <br>
+- Click your username.<br>
+- Scroll to API Keys → Click "Add API Key" <br>
+- Download your private key & public key <br>
 
-📋 2. Copy Private Key from downloaded file <br>
+**<h2>📋 2. Copy Private Key from downloaded file <br></h2>**
+
 Create the OCI private Key file <br>
 Run: [CHANGE `your-username` TO YOUR VM NAME IN BELOW CODE Eg: in my case "/home/hp/.oci/oci_api_key.pem"]
 
