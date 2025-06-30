@@ -177,7 +177,7 @@ oci iam availability-domain list
 - Then choose username for your bot (username must end with *_bot*) Eg: createvm_bot <br>
 
 <img width="300" src = "https://github.com/user-attachments/assets/ff3a4063-f59b-4623-9cec-845b4a0825c1" /> <br>
-- Now you got your Token (Eg. Refer the Img above). keep that and we will be using that in a minutes
+- Now you got your Token (Eg. Refer the Img above). keep that and we will be using that in a script
 <br>
 
 **<h2>2. Get your Chat ID:</h2>** <br>
@@ -260,7 +260,20 @@ Run:
 ```
 chmod +x launch-arm-vm.sh
 ```
-Run the script:
+Launch the script:
 ```
 ./launch-arm-vm.sh
+```
+
+# To make the script keep running in background untill it get succeed
+Run this:
+
+```
+nohup ./launch-arm-vm.sh > output.log 2>&1 &
+```
+
+To see the log of the script:
+Run:
+```
+tail -f launch.log
 ```
