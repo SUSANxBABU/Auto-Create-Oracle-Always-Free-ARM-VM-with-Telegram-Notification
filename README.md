@@ -16,7 +16,7 @@ This script automatically retries creating an Oracle Cloud ARM VM in the Always 
 
 FYI: I used GCP VM to run this script. Why not Oracle itself? If your not going to use all the limit to create this one VM, well you can run the script in Oracle VM itself [Choice is yours] <br>
 
-**<h3><h2>✅ GCP VM Setup Quick Guide (Free Tier) <br></h2>**
+**<h3><h2>✅ GCP VM Setup Quick Guide (Free Tier) </h2>** <br>
 - Go to: https://console.cloud.google.com/compute/instances <br>
 - Click: “Create Instance” <br>
 - Choose: <br>
@@ -24,7 +24,7 @@ FYI: I used GCP VM to run this script. Why not Oracle itself? If your not going 
 - Machine type: `e2-micro` (Free Tier eligible) <br>
 - Boot disk: `Ubuntu 22.04 LTS – x86/64`, amd64 (recommended) <br>
 - Firewall: Allow HTTP, Allow HTTPS traffic <br>
-- Create the instance
+- Create the instance <br>
 - Open the Instance with SSH - Open in browser window <br></h3>
 
 <img width="535" alt="image" src="https://github.com/user-attachments/assets/84b8ff43-c434-4f06-a61c-485dcff5edc1" /> 
@@ -127,14 +127,12 @@ It worked if it shows something like this: <br>
 
 **<h2>🔍 1. COMPARTMENT_ID: <br></h2>**
 Most likely: Use the root compartment (your tenancy) <br>
-Run this on your GCP VM:
+Run:
 ```
-oci iam compartment list --access-level ACCESSIBLE --compartment-id-in-subtree true   --lifecycle-state ACTIVE
+oci iam compartment list --access-level ACCESSIBLE --compartment-id-in-subtree true
 ```
-- `--lifecycle-state ACTIVE` - only lists ACTIVE compartment. IF YOU DO NOT SEE ANY ACTIVE COMPARTMENT. FOLLOW THE REPO TO MAKE ONE: []
-
 You’ll see output like: <br>
-<img width="700" alt="image" src="https://github.com/user-attachments/assets/6aedb673-bbdc-4981-912b-de9f6a1e1bdd" />
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/abbef932-951e-4683-b709-1bfbdbed8dc3" />
 
 **<h2>🔍 2. SUBNET_ID: <br></h2>**
 You can list subnets in your compartment like this: <br>
@@ -143,7 +141,7 @@ In my case > oci network subnet list --compartment-id ocid1.tenancy.oc1..aaaaaaa
 ```
 oci network subnet list --compartment-id <replace compartment-id here>
 ```
-<img src="https://github.com/user-attachments/assets/9015269c-8e11-4be7-a60e-17f527c56ac1" />
+<img src="https://github.com/user-attachments/assets/f822561c-227f-4cfd-aa0b-a546bff5278d" />
 
 **<h2>🔍 3. IMAGE_ID (Ubuntu 22.04 ARM)</h2>**
 - To find your region:
@@ -192,6 +190,7 @@ Run:<br>
 ```
 nano ./launch-arm-vm.sh
 ```
+Paste the script inside and save (ctrl + o -> Enter -> Ctrl + x):<br>
 - Replace only these with your actual IDs - **`COMPARTMENT_ID=""`,`SUBNET_ID==""`,`IMAGE_ID=""`,`AVAILABILITY_DOMAINS=("")`,`BOT_TOKEN=""`,`CHAT_ID=""`**
 ```
 #!/bin/bash
