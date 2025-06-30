@@ -290,8 +290,8 @@ Launch the script:
 ./launch-arm-vm.sh
 ```
 
-# To make the script keep running in background until it get succeed. <br>
-⚠️ Run this command so that even if you close your SSH-in-browser, the process keeps running in the background.
+# To make the script keep running in background until it get succeed <br>
+⚠️ Run this command so that even if you close your SSH-in-browser, the process keeps running in the background
 Run this:
 
 ```
@@ -305,4 +305,12 @@ tail -f launch.log
 ```
 Output will be: <br>
 <img width="273" alt="image" src="https://github.com/user-attachments/assets/c0add3a7-63d7-4afe-b987-71695a6d6528" />
+
+✨✨✨✨ <br>
+Thank you for reading through this guide! 🙌 <br>
+I hope this documentation helped you set up and understand the process clearly. <br>
+
+If you found this guide helpful, feel free to ⭐ the repo and share it with others who might benefit. <br>
+
+For any questions, improvements, or issues — contributions and discussions are always welcome!
 
