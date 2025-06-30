@@ -3,6 +3,12 @@ Auto-Create Oracle Always Free ARM VM with Telegram Notification
 
 This script automatically retries creating an Oracle Cloud ARM VM in the Always Free tier until capacity is available, then sends a Telegram message upon success.
 <hr>
+
+Useful Hints: <br>
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/b99a1cc4-f233-4653-aac2-b3adbf1069dc" /> 
+![image]([https://github.com/user-attachments/assets/71dfeb58-358b-4493-b04f-8099a3a51248](https://github.com/user-attachments/assets/b99a1cc4-f233-4653-aac2-b3adbf1069dc))
+
+
 <h3>✅ What This Script Will Do </h3> 
    - Use Ubuntu 22.04 LTS (ARM) image. <br>
     - Try to create an instance of VM.Standard.A1.Flex with: <br>
@@ -159,9 +165,9 @@ You'll output like this: <br>
 You can find your IMAGE_ID for your `Region` in the below Official link: <br>
 [https://docs.oracle.com/en-us/iaas/images/ubuntu-2204/canonical-ubuntu-22-04-2025-05-20-0.htm] <br>
 
-**<h2>4. Known your AVAILABILITY_DOMAINS:</h2>** <br>
-<img width="545" alt="image" src="https://github.com/user-attachments/assets/539f2e17-c0d2-47c5-9272-14f515fab217" /> 
-- Use the code to Known your AVAILABILITY_DOMAINS:
+**<h2>4. Known your AVAILABILITY_DOMAINS:</h2>**
+<img width="545" alt="image" src="https://github.com/user-attachments/assets/066775d4-4dfb-4e4b-afd0-38f2e04116d7" /> <br>
+-Use the code to Known your AVAILABILITY_DOMAINS:
 ```
 oci iam availability-domain list
 ````
@@ -253,7 +259,25 @@ while true; do
   sleep 30
 done
 ```
+# Pre-Final Touch <br>
+1: Generate SSH Key Pair: <br>
+Run this command:
+```
+ssh-keygen -t rsa -b 2048
+```
+When prompted:
+- File location: just press Enter (default: /home/<name>/.ssh/id_rsa)
+- Passphrase: leave empty and press Enter twice
+
+2: Verify: <br>
+Run this:
+```
+cat ~/.ssh/id_rsa.pub
+```
+- You should now see a long key starting with ssh-rsa AAAA... — this is what your VM will use for SSH access.
+
 # Final Touch <br>
+
 Make It Executable <br>
 Run:
 
@@ -265,7 +289,8 @@ Launch the script:
 ./launch-arm-vm.sh
 ```
 
-# To make the script keep running in background untill it get succeed
+# To make the script keep running in background until it get succeed. <br>
+⚠️ Run this command so that even if you close your SSH-in-browser, the process keeps running in the background.
 Run this:
 
 ```
@@ -277,3 +302,4 @@ Run:
 ```
 tail -f launch.log
 ```
+
