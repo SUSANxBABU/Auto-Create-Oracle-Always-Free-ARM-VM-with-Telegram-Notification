@@ -1,10 +1,9 @@
-# Auto-Create-Oracle-Always-Free-ARM-VM-with-Telegram-Notification
-Auto-Create Oracle Always Free ARM VM with Telegram Notification
+# Auto-Create-Oracle-Always-Free-Ubuntu ARM-VM-with-Telegram-Notification
+Auto-Create Oracle Always-Free Ubuntu ARM VM with Telegram Notification <br>
 
-This script automatically retries creating an Oracle Cloud ARM VM in the Always Free tier until capacity is available, then sends a Telegram message upon success.
-<hr>
-
+This script automates the creation of an Oracle Cloud Always Free ARM VM by continuously retrying until capacity becomes available. Once the VM is successfully created, a Telegram notification is sent to inform you immediately.
 Useful Hints & Shortcut Keys: <br>
+
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/b99a1cc4-f233-4653-aac2-b3adbf1069dc" /> 
 
 <h3>✅ What This Script Will Do </h3> 
