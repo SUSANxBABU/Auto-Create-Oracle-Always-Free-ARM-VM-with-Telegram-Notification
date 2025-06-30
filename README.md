@@ -4,10 +4,8 @@ Auto-Create Oracle Always Free ARM VM with Telegram Notification
 This script automatically retries creating an Oracle Cloud ARM VM in the Always Free tier until capacity is available, then sends a Telegram message upon success.
 <hr>
 
-Useful Hints: <br>
+Useful Hints & Shortcut Keys: <br>
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/b99a1cc4-f233-4653-aac2-b3adbf1069dc" /> 
-![image]([https://github.com/user-attachments/assets/71dfeb58-358b-4493-b04f-8099a3a51248](https://github.com/user-attachments/assets/b99a1cc4-f233-4653-aac2-b3adbf1069dc))
-
 
 <h3>✅ What This Script Will Do </h3> 
    - Use Ubuntu 22.04 LTS (ARM) image. <br>
@@ -22,7 +20,7 @@ Useful Hints: <br>
 
 FYI: I used GCP VM to run this script. Why not Oracle itself? If your not going to use all the limit to create this one VM, well you can run the script in Oracle VM itself [Choice is yours] <br>
 
-**<h3><h2>✅ GCP VM Setup Quick Guide (Free Tier) </h2>** <br>
+**<h2>✅ GCP VM Setup Quick Guide (Free Tier) </h2>**
 - Go to: https://console.cloud.google.com/compute/instances <br>
 - Click: “Create Instance” <br>
 - Choose: <br>
@@ -31,7 +29,7 @@ FYI: I used GCP VM to run this script. Why not Oracle itself? If your not going 
 - Boot disk: `Ubuntu 22.04 LTS – x86/64`, amd64 (recommended) <br>
 - Firewall: Allow HTTP, Allow HTTPS traffic <br>
 - Create the instance <br>
-- Open the Instance with SSH - Open in browser window <br></h3>
+- Open the Instance with SSH - Open in browser window <br>
 
 <img width="535" alt="image" src="https://github.com/user-attachments/assets/84b8ff43-c434-4f06-a61c-485dcff5edc1" /> 
 <img width="538" alt="image" src="https://github.com/user-attachments/assets/e83ecebc-17e7-4314-90b0-708bb1e32f56" />
@@ -40,7 +38,10 @@ FYI: I used GCP VM to run this script. Why not Oracle itself? If your not going 
 <img width="536" alt="image" src="https://github.com/user-attachments/assets/78442b5a-3db8-42cb-a8e7-801c4e668b86" />
 
 
-<h3>🧱 Requirements </h3>
+**<h2>🧱 Requirements  </h2>**
+   - GCP (or any Ubuntu Cloud VM) to run the script <br>
+   - Oracle Cloud (To create the Instance) <br>
+   - Telegram account (completely optional - if you want to receive notification once Instance is created) <br>
 
 # 🧰 Step 1: Install OCI CLI on Your GCP Ubuntu VM 
 Run this command in your GCP SSH terminal:
@@ -76,7 +77,7 @@ oci --version
 
 <br>
 Go to: <br>
-(https://cloud.oracle.com/identity/domains/my-profile/auth-tokens?) <br>
+(https://cloud.oracle.com/identity/domains/my-profile/auth-tokens) <br>
 - Click your username.<br>
 - Scroll to API Keys → Click "Add API Key" <br>
 - Download your private key & public key <br>
@@ -107,7 +108,7 @@ Run:
 nano ~/.oci/config
 ```
 
-Paste what you copied from above point (img) (replace placeholders): <br>
+Paste what you copied from above point [Img](https://github.com/user-attachments/assets/4dee768d-9e5d-42a4-b662-db56475dd3ee): <br>
 Replace: last line with your private key file location - Eg: in my case "key_file=/home/hp/.oci/oci_api_key.pem"
 ```
 **[Below code is for reference, DO NOT use that. It is template and not actual code]**
@@ -302,4 +303,6 @@ Run:
 ```
 tail -f launch.log
 ```
+Output will be: <br>
+<img width="273" alt="image" src="https://github.com/user-attachments/assets/c0add3a7-63d7-4afe-b987-71695a6d6528" />
 
