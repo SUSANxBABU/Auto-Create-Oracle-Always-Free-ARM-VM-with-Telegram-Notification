@@ -49,7 +49,7 @@ Then confirm installation:
 ```
 oci --version
 ```
-- You should see something like 3.x.x.
+- You should see something like 3.x.x. <br>
 
 After the installation finishes:
 ```
@@ -57,39 +57,41 @@ source ~/.bashrc
 oci --version
 ```
 # 🧰 Step 2: Configure OCI CLI:
-🔑 Step-by-Step: Generate API Key and Set Up OCI CLI
-✅ 1. Generate Key Pair on GCP VM
-Run this on your GCP VM:
-```
-mkdir -p ~/.oci
-openssl genrsa -out ~/.oci/oci_api_key.pem 2048
-openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out ~/.oci/oci_api_key_public.pem
-chmod 600 ~/.oci/oci_api_key.pem
-```
-
-📋 2. Copy Public Key
-Print your public key:
-```
-cat ~/.oci/oci_api_key_public.pem
-```
-- Copy the entire key — you'll paste this into your OCI account.
-
-🌐 3. Add API Key to OCI Console
-- Go to: https://cloud.oracle.com/identity/users
+🔑 Step-by-Step: Generate API Key and Set Up OCI CLI <br>
+✅ 1. Generate Key Pair on Oracle cloud dashboard <br>
+- Go to: [https://cloud.oracle.com/identity/domains](https://cloud.oracle.com/identity/domains/)
 - Click your username.
 - Scroll to API Keys → Click "Add API Key"
-- Paste the contents of your oci_api_key_public.pem
+- Download your private key & public key
+
+📋 2. Copy Private Key from downloaded file <br>
+Create the OCI private Key file <br>
+Run: [CHANGE `your-username` TO YOUR SYSTEM NAME IN BELOW CODE Eg: in my case "/home/hp/.oci/oci_api_key.pem" ]
+
+```
+nano /home/your-username/.oci/oci_api_key.pem
+```
+
+📋 3. Create Public Key File<br>
+```
+nano ~/.oci/oci_api_key_public.pem
+```
+- Copy the entire key from downloaded file and paste inside here.
+- Press Ctrl + 0 -> save and Enter
+- ctrl + x -> Exit
+
 <img width="467" alt="Screenshot 2025-06-29 231439" src="https://github.com/user-attachments/assets/4dee768d-9e5d-42a4-b662-db56475dd3ee" />
 <br>
 
-📝 4. Create the OCI Config File
+📝 5. Create the OCI Config File
 Run:
 ```
 nano ~/.oci/config
 ```
 
-Paste what you copied from above 3rd point (img) (replace placeholders):
-[Below code is for reference, do not use that. It is template and not actual code]
+Paste what you copied from above point (img) (replace placeholders): <br>
+[Below code is for reference, DO NOT use that. It is template and not actual code] <br>
+Replace: last line with your private key file location - Eg: in my case "key_file=/home/hp/.oci/oci_api_key.pem"
 ```
 [DEFAULT]
 user=ocid1.user.oc1..aaaaaaaaxxx
@@ -97,6 +99,7 @@ fingerprint=xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx
 key_file=/home/susanbabu2002/.oci/oci_api_key.pem
 tenancy=ocid1.tenancy.oc1..aaaaaaaaxxx
 region=us-ashburn-1
+Key_file=/home/your-username/.oci/oci_api_key.pem
 ```
 - Then save and exit (Ctrl+O, Enter, Ctrl+X).
 
@@ -105,3 +108,7 @@ Run:
 ```
 oci iam region list
 ```
+It worked if it shows something like this: <br>
+<img width="215" alt="image" src="https://github.com/user-attachments/assets/6d52809b-9fa0-4a53-a693-457a57690f9f" />
+
+
