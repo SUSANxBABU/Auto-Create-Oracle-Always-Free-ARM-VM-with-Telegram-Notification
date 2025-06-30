@@ -62,10 +62,9 @@ After the installation finishes:
 source ~/.bashrc
 oci --version
 ```
-
 # 🧰 Step 2: Configure OCI CLI:
 
-🔑 Step-by-Step: Generate API Key and Set Up OCI CLI <br>
+🔑 Step-by-Step: Generate API Key and Set Up OCI CLI
 
 **<h2>✅ 1. Generate Key Pair on Oracle cloud dashboard <br></h2>**
 
@@ -85,7 +84,7 @@ Run: [CHANGE `your-username` TO YOUR VM NAME IN BELOW CODE Eg: in my case "/home
 nano /home/your-username/.oci/oci_api_key.pem
 ```
 
-📋 3. Create Public Key File<br>
+**<h2>📋 3. Create Public Key File <br></h2>**
 ```
 nano ~/.oci/oci_api_key_public.pem
 ```
@@ -96,7 +95,7 @@ nano ~/.oci/oci_api_key_public.pem
 <img width="467" alt="Screenshot 2025-06-29 231439" src="https://github.com/user-attachments/assets/4dee768d-9e5d-42a4-b662-db56475dd3ee" />
 <br>
 
-📝 5. Create the OCI Config File
+**<h2>📝 4. Create the OCI Config File <br></h2>**
 Run:
 ```
 nano ~/.oci/config
@@ -117,15 +116,17 @@ Key_file=/home/your-username/.oci/oci_api_key.pem
 ```
 - Then save and exit (Ctrl+O, Enter, Ctrl+X).
 
-**<h2>✅ 5. Test It</h2>**
+**<h2>✅ 5. Test It <br></h2>**
 Run:
 ```
 oci iam region list
 ```
-It worked if it shows something like this: <br>
+It worked if it shows something like this: 
+<br>
+<br>
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/6d52809b-9fa0-4a53-a693-457a57690f9f" />
 
-# Step 3: Gathering Requirements
+# 🧰 Step 3: Gathering Requirements
 
 **<h2>🔍 1. COMPARTMENT_ID: <br></h2>**
 Most likely: Use the root compartment (your tenancy) <br>
@@ -139,10 +140,12 @@ You’ll see output like: <br>
 **<h2>🔍 2. SUBNET_ID: <br></h2>**
 You can list subnets in your compartment like this: <br>
 Replace with your compartment-id, which we got from previous step <br>
-In my case > oci network subnet list --compartment-id ocid1.tenancy.oc1..aaaaaaaacbsckmkrn9xqvmge2rlazjctykpu4obnwsmfeidvgtahqkryxbuv
+In my case 
+> oci network subnet list --compartment-id ocid1.tenancy.oc1..aaaaaaaacbsc......
 ```
 oci network subnet list --compartment-id <replace compartment-id here>
 ```
+You'll output like this: <br>
 <img src="https://github.com/user-attachments/assets/f822561c-227f-4cfd-aa0b-a546bff5278d" />
 
 **<h2>🔍 3. IMAGE_ID (Ubuntu 22.04 ARM)</h2>**
@@ -172,11 +175,12 @@ oci iam availability-domain list
 - press or type **/newbot**
 - Then Name your bot. Eg: createvm_bot
 - Then choose username for your bot (username must end with *_bot*) Eg: createvm_bot <br>
-<img width="300" src = "https://github.com/user-attachments/assets/d9457547-85b2-4f85-8f4f-3ffe957f3dc2" /> <br>
+
+<img width="300" src = "https://github.com/user-attachments/assets/ff3a4063-f59b-4623-9cec-845b4a0825c1" /> <br>
 - Now you got your Token (Eg. Refer the Img above). keep that and we will be using that in a minutes
 <br>
 
-**<h2>2. Get your Chat ID:</h2>**
+**<h2>2. Get your Chat ID:</h2>** <br>
 - Send a message to your bot, which you have created in previous step. <br>
 - Open the URL in your Browser and replace **`<YOUR_BOT_TOKEN>`** with your actual token
 ``` 
@@ -248,4 +252,15 @@ while true; do
   echo "🔁 Retrying all availability domains in 30 seconds..."
   sleep 30
 done
+```
+# Final Touch <br>
+Make It Executable <br>
+Run:
+
+```
+chmod +x launch-arm-vm.sh
+```
+Run the script:
+```
+./launch-arm-vm.sh
 ```
